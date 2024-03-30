@@ -1,0 +1,285 @@
+* {
+    font-family: system-ui;
+}
+
+body {
+    background-color: #EEEEEE;
+    margin: 0px;
+}
+
+nav {
+    padding: 1rem;
+    background-color: white;
+    width: -webkit-fill-available;
+}
+
+section {
+    margin-bottom: 4rem;
+    transition: all .25s linear;
+}
+
+#landing {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#landing.show, #editor.show {
+    transform: translateX(0);
+}
+
+#landing.hide {
+    transform: translateX(-100%);
+}
+
+#editor.hide {
+    transform: translateX(105%);
+}
+
+label {
+    font-size: .8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input, select {
+    padding: .5rem .75rem;
+    border: 2px dashed #888;
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: .35rem;
+    border-style: dashed;
+    width: -webkit-fill-available;
+}
+
+.logo {
+    color: black;
+    font-size: 1.5rem;
+    display: inline-block;
+}
+
+.logo > span {
+    font-weight: bold;
+    font-size: 2rem;
+    color: darkviolet;
+}
+
+nav > img {
+    height: 2.2rem;
+    margin-top: .4rem;
+    float: right;
+}
+
+.content {
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.content p {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #666666;
+}
+
+#drop-area {
+    text-align: center;
+    margin: 3rem 0rem;
+}
+
+.content .dz-button {
+    margin: auto;
+    display: block;
+    font-size: 1rem;
+    height: 10rem;
+    width: 30rem;
+    max-width: 100%;
+    border: .5rem dashed #DDD;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: gray;
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    cursor: pointer;
+}
+
+.content .dz-drag-hover .dz-button {
+    color: green;
+    background-color: lightgreen;
+    border-color: green;
+}
+
+#previews {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 4rem;
+}
+
+#previews .dz-preview {
+    display: inline-block;
+    margin: 1rem;
+    background-color: #DDDDDD;
+    padding: .5rem;
+    position: relative;
+    text-align: center;
+}
+
+#previews .dz-preview .dz-image > img {
+    width: 10rem;
+    height: 10rem;
+    max-width: 100%;
+    object-fit: none;
+}
+
+#previews .dz-preview .dz-details .dz-filename {
+    font-size: .8rem;
+}
+
+#previews .dz-preview .dz-details .dz-size, #previews .dz-preview .dz-success-mark, #previews .dz-preview .dz-error-mark {
+    display: none;
+}
+
+#previews .dz-preview .dz-remove {
+    background-color: transparent;
+    position: absolute;
+    border-radius: 100%;
+    top: 5px;
+    right: 5px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: all .25s linear;
+}
+
+#previews .dz-preview .dz-remove:hover {
+    background-color: red;
+}
+
+#previews .dz-preview .dz-remove > svg {
+    width: 30px;
+    height: 30px;
+    filter: invert(.4);
+    transition: all .2s linear;
+}
+
+#previews .dz-preview .dz-remove:hover > svg {
+    filter: invert(1);
+}
+
+.button {
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    height: 3rem;
+    background-color: #DDDDDD;
+    padding: 0rem 1.5rem;
+    color: #333333;
+    cursor: pointer;
+    transition: all .25s linear;
+}
+
+.button.green {
+    background-color: springgreen;
+    color: white;
+}
+
+.button:hover {
+    color: #333333;
+    background-color: #DDDDDD;
+}
+
+#back {
+    margin: 0rem !important;
+    padding: 0;
+    border: none;
+    background: transparent;
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    cursor: pointer;
+}
+
+#back > svg {
+    width: 2rem;
+    rotate: 180deg;
+}
+
+#convert-button {
+    margin: auto;
+    display: block;
+    transition: all .25s linear;
+    display: none;
+}
+
+#editor {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+}
+
+#properties {
+    padding: 1rem;
+    padding-bottom: .5rem;
+    background-color: white;
+    position: relative;
+}
+
+#properties > h2 {
+    text-align: center;
+}
+
+#properties > button {
+    margin: 1rem auto;
+    display: block;
+}
+
+#stage-background {
+    --color-1: #DDD;
+    --color-2: #CCC;
+    --size: 20px;
+    background-image: conic-gradient(var(--color-1) 25%, var(--color-2) 25%, var(--color-2) 50%, var(--color-1) 50%, var(--color-1) 75%, var(--color-2) 75%);
+    background-size: calc(var(--size)* 2) calc(var(--size)* 2);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+#stage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: top left;
+}
+
+#stage > img {
+    position: absolute;
+}
+
+footer {
+    text-align: center;
+    background-color: darkviolet;
+    color: white;
+    padding: 1rem;
+    position: fixed;
+    width: -webkit-fill-available;
+    bottom: 0;
+    left: 0;
+}
+
+@media screen and (max-width: 900px) {
+    #previews {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    #editor {
+        display: block;
+    }
+
+    #stage-background {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #previews {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
