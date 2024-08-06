@@ -78,39 +78,42 @@ function render() {
         height: contentHeight + "px",
         transform: contentWidth > parentWidth ? "scale(" + (parentWidth / contentWidth) + ")" : "scale(1)"
     });
-    // stg.style.width = contentWidth + "px";
-    // stg.style.height = contentHeight + "px";
-    // stg.style.transform = contentWidth > parentWidth ? "scale(" + (parentWidth / contentWidth) + ")" : "scale(1)";
 }
 
 function analyzePosition(file, images, padding, maxWidth) {
     let x = 0, y = 0, resY = 0;
+    let map = [];
+
     for(let i = 0; i < images.length; i++) {
-        const startPoint = images[i].x + images[i].width + padding;
-        const endPoint = images[i].y + images[i].height + padding;
-        const fileStartPoint = startPoint + file.width + padding;
-        let spaceY = 0;
-
-        for(let j = 0; j < images.length; j++) {
-            if(startPoint >= images[j].x) {
-                if((images[j].y + images[j].height + padding) <= images[i].y) {
-                    spaceY = images[j].y + images[j].height + padding;
-                }
-            }
-        }
-
-        if(fileStartPoint < maxWidth) {
-            x = startPoint;
-            y = spaceY > 0 ? spaceY : images[i].y;
-        }else{
-            x = 0;
-            y = resY;
-        }
-
-        if(endPoint > resY) {
-            resY = endPoint;
-        }
+        map.push()
     }
+
+    // for(let i = 0; i < images.length; i++) {
+    //     const startPoint = images[i].x + images[i].width + padding;
+    //     const endPoint = images[i].y + images[i].height + padding;
+    //     const fileStartPoint = startPoint + file.width + padding;
+    //     let spaceY = 0;
+
+    //     for(let j = 0; j < images.length; j++) {
+    //         if(startPoint >= images[j].x) {
+    //             if((images[j].y + images[j].height + padding) <= images[i].y) {
+    //                 spaceY = images[j].y + images[j].height + padding;
+    //             }
+    //         }
+    //     }
+
+    //     if(fileStartPoint < maxWidth) {
+    //         x = startPoint;
+    //         y = spaceY > 0 ? spaceY : images[i].y;
+    //     }else{
+    //         x = 0;
+    //         y = resY;
+    //     }
+
+    //     if(endPoint > resY) {
+    //         resY = endPoint;
+    //     }
+    // }
 
     return { x: x, y: y };
 }
