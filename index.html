@@ -1,66 +1,26 @@
-<!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="CSS Spritesheet - Funkz" />
-        <meta property="og:description" content="CSS spritesheet tools are used to convert image collections into a single responsive image sprite for optimized web page." />
-        <meta property="og:image" content="./icon.png" />
-        <title>CSS Spritesheet - Funkz</title>
-        <link href="./css/style.css" rel="stylesheet">
-        <link href="./icon.png" rel="icon">
-    </head>
-    <body>
-        <nav>
-            <div class="logo"><span>CSS</span> Spritesheet</div>
-            <img src="./images/logo.png">
-        </nav>
-        <div class="content">
-            <section id="landing" class="show">
-                <p>
-                    CSS spritesheet tools are used to convert image collections into a single responsive image sprite for optimized web page.
-                    <br>
-                    Just try to drop your image files below, and we'll make it for you!
-                </p>
-                <form action="#" class="dropzone" id="drop-area"></form>
-                <div>
-                    <button type="button" class="button green" id="convert-button">OKAY, CONVERT NOW</button>
-                </div>
-                <div id="previews"></div>
-            </section>
-            <section id="editor" class="hide">
-                <div id="properties">
-                    <button type="button" id="back">
-                        <svg viewBox="0 0 24 24" focusable="false" class="dyAbMb"><path d="M0 0h24v24H0z" fill="none"></path><path d="M8.59,16.59L13.17,12L8.59,7.41L10,6l6,6l-6,6L8.59,16.59z"></path></svg>
-                    </button>
-                    <h2>SETTINGS</h2>
-                    <label>Filename:</label>
-                    <input id="filename" type="text" placeholder="spritesheet">
-                    <label>Sprite Prefix:</label>
-                    <input id="prefix" type="text" placeholder="sprite">
-                    <label>Padding:</label>
-                    <input id="padding" type="number" step="1" min="0" value="0">
-                    <label>Max Width:</label>
-                    <input id="max-width" type="number" step="1" min="720" value="2048">
-                    <label>Image Format:</label>
-                    <select id="image-format">
-                        <option value="png" selected>PNG</option>
-                        <option value="jpeg">JPEG</option>
-                        <option value="webp">WEBP</option>
-                    </select>
-                    <label>Image Quality:</label>
-                    <input id="image-quality" type="number" step="1" min="1" max="100" value="100">
-                    <button type="button" class="button green" id="export">EXPORT</button>
-                </div>
-                <div id="stage-background">
-                    <div id="stage"></div>
-                    <!-- <canvas id="stage"></canvas> -->
-                </div>
-            </section>
-        </div>
-        <footer>
-            CSS Spritesheet @Ariel Francis Gacilo
-        </footer>
-        <script src="main.js"></script>
-    </body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CSS Spritesheet Generator — combine PNG, JPG, WEBP and SVG images into a single optimized spritesheet with generated CSS, SCSS and JSON. 100% client-side, private by design." />
+    <meta property="og:title" content="CSS Spritesheet Generator" />
+    <meta property="og:description" content="Combine images into one optimized spritesheet. Fewer requests, easy CSS integration. All processing happens locally in your browser." />
+    <meta property="og:image" content="./logo.webp" />
+    <title>CSS Spritesheet Generator</title>
+    <script>
+      // Prevent theme flash: default to system
+      try {
+        var t = localStorage.getItem('css-spritesheet:theme') || 'system';
+        var dark = t === 'dark' || (t === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (dark) document.documentElement.classList.add('dark');
+      } catch (e) {}
+    </script>
+    <script type="module" crossorigin src="./assets/index-BjvR4yp5.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BIzmC4nK.css">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
 </html>
