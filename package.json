@@ -1,28 +1,33 @@
 {
   "name": "css-spritesheet",
-  "version": "1.0.2",
-  "description": "",
+  "version": "2.0.0",
+  "description": "Combine multiple images into a single optimized CSS spritesheet — 100% client-side.",
   "private": true,
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "dev": "vite",
+    "build": "vue-tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "copy-webpack-plugin": "^12.0.2",
-    "express": "^4.19.1",
-    "webpack": "^5.91.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
-  },
+  "keywords": ["css", "spritesheet", "sprite", "canvas", "vue"],
+  "author": "Ariel Francis Gacilo",
+  "license": "MIT",
   "dependencies": {
-    "dropzone": "^6.0.0-beta.2",
-    "file-saver": "^2.0.5",
-    "html2canvas": "^1.4.1",
+    "@vueuse/core": "^13.1.0",
     "jszip": "^3.10.1",
-    "lodash": "^4.17.21"
+    "lucide-vue-next": "^0.469.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "jsdom": "^25.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "~5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^3.0.0",
+    "vue-tsc": "^2.2.0"
   }
 }

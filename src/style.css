@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f8fafc;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+html.dark {
+  background-color: #020617;
+}
+
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.dark body {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+::selection {
+  background: rgb(37 99 235 / 0.25);
+}
+
+/* Thin scrollbars for code + lists */
+.nice-scroll::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.nice-scroll::-webkit-scrollbar-thumb {
+  background: rgb(148 163 184 / 0.5);
+  border-radius: 8px;
+}
+.nice-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Checkerboard for transparency preview */
+.checkerboard {
+  --c1: #e2e8f0;
+  --c2: #f8fafc;
+  --s: 16px;
+  background-image: conic-gradient(var(--c1) 25%, var(--c2) 25%, var(--c2) 50%, var(--c1) 50%, var(--c1) 75%, var(--c2) 75%);
+  background-size: calc(var(--s) * 2) calc(var(--s) * 2);
+}
+.dark .checkerboard {
+  --c1: #1e293b;
+  --c2: #0f172a;
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.25s ease-out both;
+}
